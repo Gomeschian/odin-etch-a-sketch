@@ -9,18 +9,30 @@
     </head>
 <body>
     <div class = "gridContainer">
-
+    
     </div>
     <script>
         let gridContainer = document.querySelector(".gridContainer");
-        for (let i = 0; i< 256; i++)
+        function clearGrid()
         {
-            const newDiv = document.createElement("div");
-            newDiv.classList.add("gridSquare");
-            newDiv.style.width = "3rem";
-            newDiv.style.height = "3rem";
-            gridContainer.appendChild(newDiv);
-        } 
+            const existingGrid = document.querySelectorAll(".gridSquare");
+            existingGrid.forEach(gridSquare => {
+            gridContainer.removeChild(gridSquare);
+            });
+        }
+        function drawGrid(squareLength="3rem")
+        {
+            clearGrid();
+            for (let i = 0; i< 256; i++)
+            {
+                const newDiv = document.createElement("div");
+                newDiv.classList.add("gridSquare");
+                newDiv.style.width = squareLength;
+                newDiv.style.height = squareLength;
+                gridContainer.appendChild(newDiv);
+            }
+        }
+        drawGrid(); 
     </script>
 </body>
 </html>
