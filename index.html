@@ -33,6 +33,12 @@
             }
         }
         drawGrid(); 
+        const allSquares = document.querySelectorAll(".gridSquare");
+        allSquares.forEach(square => {
+            square.addEventListener("mouseover",() => {
+                square.classList.toggle("activatedSquare");
+                })
+            });  
     </script>
 </body>
 </html>
