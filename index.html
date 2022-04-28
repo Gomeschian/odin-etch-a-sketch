@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Etch x Sketch</title>
+    <link rel="stylesheet" href="./style.css">
+    </head>
+<body>
+    <div class = "gridContainer">
+
+    </div>
+    <script>
+        let gridContainer = document.querySelector(".gridContainer");
+        for (let i = 0; i< 256; i++)
+        {
+            const newDiv = document.createElement("div");
+            newDiv.classList.add("gridSquare");
+            newDiv.style.width = "3rem";
+            newDiv.style.height = "3rem";
+            gridContainer.appendChild(newDiv);
+        } 
+    </script>
+</body>
+</html>
