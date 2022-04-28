@@ -8,10 +8,13 @@
     <link rel="stylesheet" href="./style.css">
     </head>
 <body>
+    <button id="dimensionsPromptBtn">Draw Grid</button>
     <div class = "gridContainer">
     
     </div>
     <script>
+        let dimensionsPromptBtn = document.querySelector("#dimensionsPromptBtn");
+        dimensionsPromptBtn.addEventListener("click",promptGridDimensions);
         let gridContainer = document.querySelector(".gridContainer");
         function clearGrid()
         {
@@ -20,10 +23,11 @@
             gridContainer.removeChild(gridSquare);
             });
         }
-        function drawGrid(squareLength="3rem")
+        function drawGrid(gridLength = 64, squareLength="3rem")
         {
             clearGrid();
-            for (let i = 0; i< 256; i++)
+            let desiredGridSquares = Math.pow(gridLength,2) 
+            for (let i = 0; i< desiredGridSquares; i++)
             {
                 const newDiv = document.createElement("div");
                 newDiv.classList.add("gridSquare");
@@ -31,6 +35,11 @@
                 newDiv.style.height = squareLength;
                 gridContainer.appendChild(newDiv);
             }
+        }
+        function promptGridDimensions()
+        {
+            let gridLength = prompt("How many squares per side?");
+            if (gridLength) drawGrid(gridLength);
         }
         drawGrid(); 
         const allSquares = document.querySelectorAll(".gridSquare");
