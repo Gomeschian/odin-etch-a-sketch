@@ -13,9 +13,9 @@
     
     </div>
     <script>
+        let gridContainer = document.querySelector(".gridContainer");
         let dimensionsPromptBtn = document.querySelector("#dimensionsPromptBtn");
         dimensionsPromptBtn.addEventListener("click",promptGridDimensions);
-        let gridContainer = document.querySelector(".gridContainer");
         function clearGrid()
         {
             const existingGrid = document.querySelectorAll(".gridSquare");
@@ -23,10 +23,10 @@
             gridContainer.removeChild(gridSquare);
             });
         }
-        function drawGrid(gridLength = 64, squareLength="3rem")
+        function drawGrid(gridLength = 16, squareLength="3rem")
         {
             clearGrid();
-            let desiredGridSquares = Math.pow(gridLength,2) 
+            let desiredGridSquares = Math.pow(gridLength,2)           
             for (let i = 0; i< desiredGridSquares; i++)
             {
                 const newDiv = document.createElement("div");
@@ -35,19 +35,24 @@
                 newDiv.style.height = squareLength;
                 gridContainer.appendChild(newDiv);
             }
+            addColorToggling();      
         }
         function promptGridDimensions()
         {
             let gridLength = prompt("How many squares per side?");
             if (gridLength) drawGrid(gridLength);
         }
-        drawGrid(); 
-        const allSquares = document.querySelectorAll(".gridSquare");
-        allSquares.forEach(square => {
-            square.addEventListener("mouseover",() => {
-                square.classList.toggle("activatedSquare");
-                })
-            });  
+        function addColorToggling()
+        { 
+            const allSquares = document.querySelectorAll(".gridSquare");
+            allSquares.forEach(square => {
+                square.addEventListener("mouseover",() => {
+                    square.classList.toggle("activatedSquare");
+                    })
+                });
+        }  
+        drawGrid();
+        
     </script>
 </body>
 </html>
