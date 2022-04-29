@@ -22,9 +22,9 @@
         dimensionsPromptBtn.addEventListener("click",promptGridDimensions);
         function clearGrid()
         {
-            const existingGrid = document.querySelectorAll(".gridSquare");
-            existingGrid.forEach(FlexRow => {
-            gridContainer.removeChild(FlexRow);
+            const existingGrid = document.querySelectorAll(".flexRow");
+            existingGrid.forEach(flexRow => {
+            gridContainer.removeChild(flexRow);
             });
         }
         function drawGrid(gridLength = 16)
@@ -34,7 +34,7 @@
             for (let i = 0; i< gridLength; i++)
             {
                 const newFlexRow = document.createElement("div")
-                newFlexRow.classList.add("FlexRow");
+                newFlexRow.classList.add("flexRow");
                 for (let i = 0; i< gridLength; i++)
                 {
                     const newDiv = document.createElement("div");
