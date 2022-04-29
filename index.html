@@ -23,19 +23,20 @@
             gridContainer.removeChild(gridSquare);
             });
         }
-        function drawGrid(gridLength = 16, squareLength="3rem")
+        function drawGrid(gridLength = 16)
         {
             clearGrid();
-            let desiredGridSquares = Math.pow(gridLength,2)           
+            let desiredGridSquares = Math.pow(gridLength,2);           
             for (let i = 0; i< desiredGridSquares; i++)
             {
                 const newDiv = document.createElement("div");
                 newDiv.classList.add("gridSquare");
-                newDiv.style.width = squareLength;
-                newDiv.style.height = squareLength;
+                newDiv.style.width = "80px";
+                newDiv.style.height = newDiv.style.width;
                 gridContainer.appendChild(newDiv);
             }
-            addColorToggling();      
+            addColorToggling();
+            setGridNumOfColumns(gridLength);      
         }
         function promptGridDimensions()
         {
@@ -50,6 +51,10 @@
                     square.classList.toggle("activatedSquare");
                     })
                 });
+        }
+        function setGridNumOfColumns(gridLength)
+        {
+            gridContainer.setAttribute("style",`grid-template-columns : repeat(${gridLength}, auto)`);
         }  
         drawGrid();
         
