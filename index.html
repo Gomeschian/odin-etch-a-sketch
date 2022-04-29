@@ -41,7 +41,8 @@
         function promptGridDimensions()
         {
             let gridLength = prompt("How many squares per side?");
-            if (gridLength) drawGrid(gridLength);
+            if (gridLength && gridLength <= 100) {drawGrid(gridLength);}
+            else alert("Invalid number. Keep the number of squares to 100 or fewer.");
         }
         function addColorToggling()
         { 
