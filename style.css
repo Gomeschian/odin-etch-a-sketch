@@ -1,18 +1,16 @@
 html{
     box-sizing: border-box;
-    
 }
 .gridContainer{
-    height:80%;
-    width:auto;
-    display: grid;
-    justify-content: center;
-    align-items: center;
+    display: flex;
 }
 .gridSquare{
     border-color: black;
     border-style: solid;
-    border-width: 1%;
+}
+.flexRow{
+    border-color: black;
+    border-style: solid;
 }
 .activatedSquare{
     background-color:blue;

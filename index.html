@@ -14,52 +14,44 @@
     </div>
     <script>
         let gridContainer = document.querySelector(".gridContainer");
-        let gridWidth = 960;
+        let gridWidth = 700;
         let newGridWidth = 0;
+        let gridSquareWidth = 0;
+        let gridsDrawn = 0;
         let dimensionsPromptBtn = document.querySelector("#dimensionsPromptBtn");
         dimensionsPromptBtn.addEventListener("click",promptGridDimensions);
         function clearGrid()
         {
             const existingGrid = document.querySelectorAll(".gridSquare");
-            existingGrid.forEach(gridSquare => {
-            gridContainer.removeChild(gridSquare);
+            existingGrid.forEach(FlexRow => {
+            gridContainer.removeChild(FlexRow);
             });
         }
         function drawGrid(gridLength = 16)
         {
             clearGrid();
-            let desiredGridSquares = Math.pow(gridLength,2);
-            let gridSquareWidth = gridWidth/gridLength;
-            let timesRun = 0;
-            if (timesRun === 0)
+            gridSquareWidth = gridWidth/gridLength;
+            for (let i = 0; i< gridLength; i++)
             {
-                for (let i = 0; i< desiredGridSquares; i++)
+                const newFlexRow = document.createElement("div")
+                newFlexRow.classList.add("FlexRow");
+                for (let i = 0; i< gridLength; i++)
                 {
-                    
                     const newDiv = document.createElement("div");
                     newDiv.classList.add("gridSquare");
                     newDiv.style.width = `${gridSquareWidth}px`;
                     newDiv.style.height = newDiv.style.width;
-                    gridContainer.appendChild(newDiv);
-                }            
+                    newFlexRow.appendChild(newDiv);
+                }   
+                gridContainer.appendChild(newFlexRow);
+            }    
+                if (gridsDrawn === 0)
+            {        
                 newGridWidth = gridSquareWidth * gridLength;
-                gridSquareWidth = newGridWidth/gridLength;
-                timesRun++;
-            }
-            else
-            {
-                for (let i = 0; i< desiredGridSquares; i++)
-                {
-                    
-                    const newDiv = document.createElement("div");
-                    newDiv.classList.add("gridSquare");
-                    newDiv.style.width = `${gridSquareWidth}px`;
-                    newDiv.style.height = newDiv.style.width;
-                    gridContainer.appendChild(newDiv);
-                }            
+                gridWidth = newGridWidth;
+                gridsDrawn++;
             }
             addColorToggling();
-            setGridNumOfColumns(gridLength);      
         }
         function promptGridDimensions()
         {
@@ -76,11 +68,7 @@
                     })
                 });
         }
-        function setGridNumOfColumns(gridLength)
-        {
-            gridContainer.setAttribute("style",`grid-template-columns : repeat(${gridLength}, auto)`);
-        }  
-        drawGrid();
+    drawGrid();    
         
     </script>
 </body>
