@@ -6,6 +6,8 @@ html{
     height:80%;
     width:auto;
     display: grid;
+    justify-content: center;
+    align-items: center;
 }
 .gridSquare{
     border-color: black;
