@@ -14,6 +14,8 @@
     </div>
     <script>
         let gridContainer = document.querySelector(".gridContainer");
+        let gridWidth = 960;
+        let newGridWidth = 0;
         let dimensionsPromptBtn = document.querySelector("#dimensionsPromptBtn");
         dimensionsPromptBtn.addEventListener("click",promptGridDimensions);
         function clearGrid()
@@ -26,14 +28,35 @@
         function drawGrid(gridLength = 16)
         {
             clearGrid();
-            let desiredGridSquares = Math.pow(gridLength,2);           
-            for (let i = 0; i< desiredGridSquares; i++)
+            let desiredGridSquares = Math.pow(gridLength,2);
+            let gridSquareWidth = gridWidth/gridLength;
+            let timesRun = 0;
+            if (timesRun === 0)
             {
-                const newDiv = document.createElement("div");
-                newDiv.classList.add("gridSquare");
-                newDiv.style.width = "80px";
-                newDiv.style.height = newDiv.style.width;
-                gridContainer.appendChild(newDiv);
+                for (let i = 0; i< desiredGridSquares; i++)
+                {
+                    
+                    const newDiv = document.createElement("div");
+                    newDiv.classList.add("gridSquare");
+                    newDiv.style.width = `${gridSquareWidth}px`;
+                    newDiv.style.height = newDiv.style.width;
+                    gridContainer.appendChild(newDiv);
+                }            
+                newGridWidth = gridSquareWidth * gridLength;
+                gridSquareWidth = newGridWidth/gridLength;
+                timesRun++;
+            }
+            else
+            {
+                for (let i = 0; i< desiredGridSquares; i++)
+                {
+                    
+                    const newDiv = document.createElement("div");
+                    newDiv.classList.add("gridSquare");
+                    newDiv.style.width = `${gridSquareWidth}px`;
+                    newDiv.style.height = newDiv.style.width;
+                    gridContainer.appendChild(newDiv);
+                }            
             }
             addColorToggling();
             setGridNumOfColumns(gridLength);      
