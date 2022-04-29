@@ -35,6 +35,7 @@
                 newDiv.style.height = squareLength;
                 gridContainer.appendChild(newDiv);
             }
+            gridContainer.setAttribute(`style`, `grid-template-columns: repeat(${gridLength}, 3rem)`);
             addColorToggling();      
         }
         function promptGridDimensions()
