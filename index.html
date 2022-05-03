@@ -39,6 +39,8 @@
                 {
                     const newDiv = document.createElement("div");
                     newDiv.classList.add("gridSquare");
+                    newDiv.setAttribute("style", `width:${gridSquareWidth}`);
+                    newDiv.setAttribute("style", `height:${gridSquareWidth}`);
                     newFlexRow.appendChild(newDiv);
                 }   
                 gridContainer.appendChild(newFlexRow);

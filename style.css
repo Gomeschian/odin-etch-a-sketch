@@ -2,17 +2,18 @@ html{
     box-sizing: border-box;
 }
 #gridContainer{
-    min-width: 960px;
-    min-height:960px;
+    min-width: 9.6px;
+    min-height:9.6px;
     max-width: 960px;
     max-height:960px; 
 }
 .gridSquare{
     border-color: black;
     border-style: solid;
-    width:60px;
-    height:60px;
-
+    min-width: 9.6px;
+    min-height: 9.6px;
+    max-width: 100px;
+    max-height: 100px;
 }
 .flexRow{
     display: flex;
