@@ -14,9 +14,7 @@
     </div>
     <script>
         let gridContainer = document.getElementById("gridContainer");
-        gridContainer.style.width = 960 + "px";
-        let gridWidth = gridContainer.style.width;
-        let gridSquareWidth = 0;
+  
         let dimensionsPromptBtn = document.querySelector("#dimensionsPromptBtn");
         dimensionsPromptBtn.addEventListener("click",promptGridDimensions);
         function clearGrid()
@@ -28,19 +26,23 @@
         }
         function drawGrid(gridLength = 16)
         {
-            clearGrid();           
-            gridSquareWidth = gridWidth/gridLength;
-
+            clearGrid();
+            let gridWidth = 960;
+            let gridSquareSide = gridWidth/gridLength;           
+            let rowWidth = gridWidth;
+            let rowHeight = gridSquareSide;
             for (let i = 0; i< gridLength; i++)
             {
                 const newFlexRow = document.createElement("div")
                 newFlexRow.classList.add("flexRow");
+                newFlexRow.setAttribute("style", `width:${rowWidth}px`);
+                newFlexRow.setAttribute("style", `height:${rowHeight}px`);
                 for (let i = 0; i< gridLength; i++)
                 {
                     const newDiv = document.createElement("div");
                     newDiv.classList.add("gridSquare");
-                    newDiv.setAttribute("style", `width:${gridSquareWidth}`);
-                    newDiv.setAttribute("style", `height:${gridSquareWidth}`);
+                    newDiv.setAttribute("style", `width:${gridSquareSide}px`);
+                    newDiv.setAttribute("style", `height:${gridSquareSide}px`);
                     newFlexRow.appendChild(newDiv);
                 }   
                 gridContainer.appendChild(newFlexRow);

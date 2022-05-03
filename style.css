@@ -2,10 +2,11 @@ html{
     box-sizing: border-box;
 }
 #gridContainer{
-    min-width: 9.6px;
-    min-height:9.6px;
-    max-width: 960px;
-    max-height:960px; 
+    width:960px;
+    height:960px;
+    min-width: 960px;
+    min-height: 960px;
+
 }
 .gridSquare{
     border-color: black;
@@ -18,7 +19,12 @@ html{
 .flexRow{
     display: flex;
     border-color: black;
+    min-width: 960px;
+    min-height: 9.6px;
+    max-width: 960px;
+    max-height: 960px;
 }
+
 .activatedSquare{
     background-color:blue;
 }
