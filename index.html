@@ -14,7 +14,7 @@
     </div>
     <script>
         let gridContainer = document.querySelector(".gridContainer");
-        let gridWidth = 700;
+        let gridWidth = 0;
         let newGridWidth = 0;
         let gridSquareWidth = 0;
         let gridsDrawn = 0;
@@ -22,7 +22,7 @@
         dimensionsPromptBtn.addEventListener("click",promptGridDimensions);
         function clearGrid()
         {
-            const existingGrid = document.querySelectorAll(".flexRow");
+            const existingGrid = document.querySelectorAll(".mainSquare");
             existingGrid.forEach(flexRow => {
             gridContainer.removeChild(flexRow);
             });
@@ -30,7 +30,14 @@
         function drawGrid(gridLength = 16)
         {
             clearGrid();
+            const mainSquare = document.createElement("div");
+            mainSquare.classList.add("mainSquare");
+            mainSquare.style.width = "700px";
+            mainSquare.style.height = "700px";
+            gridWidth = mainSquare.offsetWidth;
+            console.log(gridWidth);
             gridSquareWidth = gridWidth/gridLength;
+            gridContainer.appendChild(mainSquare);
             for (let i = 0; i< gridLength; i++)
             {
                 const newFlexRow = document.createElement("div")
@@ -43,11 +50,11 @@
                     newDiv.style.height = newDiv.style.width;
                     newFlexRow.appendChild(newDiv);
                 }   
-                gridContainer.appendChild(newFlexRow);
+                mainSquare.appendChild(newFlexRow);
             }    
                 if (gridsDrawn === 0)
             {        
-                newGridWidth = gridSquareWidth * gridLength;
+                newGridWidth = mainSquare.offsetWidth;
                 gridWidth = newGridWidth;
                 gridsDrawn++;
             }

@@ -2,13 +2,20 @@ html{
     box-sizing: border-box;
 }
 .gridContainer{
-    display: flex;
+    display: inline-block;
+    justify-content: center;
+    align-items: center; 
+}
+.mainSquare{
+    display: block;
 }
 .gridSquare{
     border-color: black;
     border-style: solid;
+    
 }
 .flexRow{
+    display: flex;
     border-color: black;
     border-style: solid;
 }
