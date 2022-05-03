@@ -27,7 +27,7 @@
         function drawGrid(gridLength = 16)
         {
             clearGrid();
-            let gridWidth = 960;
+            let gridWidth = gridContainer.offsetWidth;
             let gridSquareSide = gridWidth/gridLength;           
             let rowWidth = gridWidth;
             let rowHeight = gridSquareSide;
@@ -35,20 +35,19 @@
             {
                 const newFlexRow = document.createElement("div")
                 newFlexRow.classList.add("flexRow");
-                newFlexRow.setAttribute("style", `width:${rowWidth}px`, `height:${rowHeight}px`);
                 for (let i = 0; i< gridLength; i++)
                 {
                     const newDiv = document.createElement("div");
                     newDiv.classList.add("gridSquare");
-                    newDiv.setAttribute("style", `width:${gridSquareSide}px`, `height:${gridSquareSide}px`);
                     newFlexRow.appendChild(newDiv);
                 }
-                console.log(gridSquareSide);
-                console.log(rowWidth);
-                console.log(rowHeight);
                 gridContainer.appendChild(newFlexRow);
-            }    
+            } 
+            document.querySelectorAll(".flexRow").forEach(row => {
+                row.classList.add("row");
+            })
             document.querySelectorAll(".gridSquare").forEach(square => {
+                square.classList.add("square");
                 square.setAttribute("style","border-style:solid", "border-width:1%")
             })
             addColorToggling();
