@@ -14,6 +14,10 @@
     </div>
     <script>
         let gridContainer = document.querySelector(".gridContainer");
+        let gridWidth = 700;
+        let newGridWidth = 0;
+        let gridSquareWidth = 0;
+        let gridsDrawn = 0;
         let dimensionsPromptBtn = document.querySelector("#dimensionsPromptBtn");
         dimensionsPromptBtn.addEventListener("click",promptGridDimensions);
         function clearGrid()
@@ -26,14 +30,23 @@
         function drawGrid(gridLength = 16)
         {
             clearGrid();
-            let desiredGridSquares = Math.pow(gridLength,2);           
+            let desiredGridSquares = Math.pow(gridLength,2);
+            gridSquareWidth = gridWidth/gridLength;
+            console.log(gridSquareWidth);
             for (let i = 0; i< desiredGridSquares; i++)
             {
                 const newDiv = document.createElement("div");
                 newDiv.classList.add("gridSquare");
-                newDiv.style.width = "80px";
+                newDiv.style.width = `${gridSquareWidth}px`;
                 newDiv.style.height = newDiv.style.width;
                 gridContainer.appendChild(newDiv);
+            }
+            if (gridsDrawn === 0)
+            {        
+                newGridWidth = 700;
+                gridWidth = newGridWidth;
+                gridsDrawn++;
+                console.log(gridWidth);
             }
             addColorToggling();
             setGridNumOfColumns(gridLength);      

@@ -3,14 +3,11 @@ html{
 }
 
 .gridContainer{
-    height:80%;
-    width:auto;
     display: grid;
 }
 .gridSquare{
     border-color: black;
-    border-style: solid;
-    border-width: 1%;
+    border-style: solid; 
 }
 .activatedSquare{
     background-color:blue;
