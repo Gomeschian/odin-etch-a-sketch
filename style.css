@@ -1,23 +1,22 @@
 html{
     box-sizing: border-box;
 }
-.gridContainer{
-    display: inline-block;
-    justify-content: center;
-    align-items: center; 
-}
-.mainSquare{
-    display: block;
+#gridContainer{
+    min-width: 960px;
+    min-height:960px;
+    max-width: 960px;
+    max-height:960px; 
 }
 .gridSquare{
     border-color: black;
     border-style: solid;
-    
+    width:60px;
+    height:60px;
+
 }
 .flexRow{
     display: flex;
     border-color: black;
-    border-style: solid;
 }
 .activatedSquare{
     background-color:blue;
