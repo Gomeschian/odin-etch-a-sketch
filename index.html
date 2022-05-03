@@ -32,7 +32,6 @@
             clearGrid();
             let desiredGridSquares = Math.pow(gridLength,2);
             gridSquareWidth = gridWidth/gridLength;
-            console.log(gridSquareWidth);
             for (let i = 0; i< desiredGridSquares; i++)
             {
                 const newDiv = document.createElement("div");
@@ -46,7 +45,6 @@
                 newGridWidth = 700;
                 gridWidth = newGridWidth;
                 gridsDrawn++;
-                console.log(gridWidth);
             }
             addColorToggling();
             setGridNumOfColumns(gridLength);      
