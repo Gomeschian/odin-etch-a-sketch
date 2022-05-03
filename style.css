@@ -10,15 +10,12 @@ html{
 }
 .gridSquare{
     border-color: black;
-    border-style: solid;
     min-width: 9.6px;
     min-height: 9.6px;
-    max-width: 100px;
-    max-height: 100px;
+    max-width: 960px;
 }
 .flexRow{
     display: flex;
-    border-color: black;
     min-width: 960px;
     min-height: 9.6px;
     max-width: 960px;

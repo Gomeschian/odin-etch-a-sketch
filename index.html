@@ -35,19 +35,22 @@
             {
                 const newFlexRow = document.createElement("div")
                 newFlexRow.classList.add("flexRow");
-                newFlexRow.setAttribute("style", `width:${rowWidth}px`);
-                newFlexRow.setAttribute("style", `height:${rowHeight}px`);
+                newFlexRow.setAttribute("style", `width:${rowWidth}px`, `height:${rowHeight}px`);
                 for (let i = 0; i< gridLength; i++)
                 {
                     const newDiv = document.createElement("div");
                     newDiv.classList.add("gridSquare");
-                    newDiv.setAttribute("style", `width:${gridSquareSide}px`);
-                    newDiv.setAttribute("style", `height:${gridSquareSide}px`);
+                    newDiv.setAttribute("style", `width:${gridSquareSide}px`, `height:${gridSquareSide}px`);
                     newFlexRow.appendChild(newDiv);
-                }   
+                }
+                console.log(gridSquareSide);
+                console.log(rowWidth);
+                console.log(rowHeight);
                 gridContainer.appendChild(newFlexRow);
             }    
-
+            document.querySelectorAll(".gridSquare").forEach(square => {
+                square.setAttribute("style","border-style:solid", "border-width:1%")
+            })
             addColorToggling();
         }
         function promptGridDimensions()
