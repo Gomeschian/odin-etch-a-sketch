@@ -14,12 +14,12 @@
     </div>
     <script>
         let gridContainer = document.getElementById("gridContainer");
-  
+        let gridWidth = 400;
         let dimensionsPromptBtn = document.querySelector("#dimensionsPromptBtn");
         dimensionsPromptBtn.addEventListener("click",promptGridDimensions);
         function clearGrid()
         {
-            const existingGrid = document.querySelectorAll(".flexRow");
+            const existingGrid = document.querySelectorAll(".row");
             existingGrid.forEach(flexRow => {
             gridContainer.removeChild(flexRow);
             });
@@ -27,28 +27,25 @@
         function drawGrid(gridLength = 16)
         {
             clearGrid();
-            let gridWidth = gridContainer.offsetWidth;
             let gridSquareSide = gridWidth/gridLength;           
             let rowWidth = gridWidth;
             let rowHeight = gridSquareSide;
             for (let i = 0; i< gridLength; i++)
             {
                 const newFlexRow = document.createElement("div")
-                newFlexRow.classList.add("flexRow");
+                newFlexRow.classList.add("row");
+                newFlexRow.style.height = rowHeight + "px";
                 for (let i = 0; i< gridLength; i++)
                 {
                     const newDiv = document.createElement("div");
-                    newDiv.classList.add("gridSquare");
+                    newDiv.classList.add("square");
                     newFlexRow.appendChild(newDiv);
                 }
                 gridContainer.appendChild(newFlexRow);
             } 
-            document.querySelectorAll(".flexRow").forEach(row => {
-                row.classList.add("row");
-            })
-            document.querySelectorAll(".gridSquare").forEach(square => {
-                square.classList.add("square");
-                square.setAttribute("style","border-style:solid", "border-width:1%")
+            document.querySelectorAll(".square").forEach(square => {
+                square.style.borderStyle = "solid";
+                square.style.width = gridSquareSide + "px";
             })
             addColorToggling();
         }
@@ -60,15 +57,14 @@
         }
         function addColorToggling()
         { 
-            const allSquares = document.querySelectorAll(".gridSquare");
+            const allSquares = document.querySelectorAll(".square");
             allSquares.forEach(square => {
                 square.addEventListener("mouseover",() => {
                     square.classList.toggle("activatedSquare");
                     })
                 });
         }
-    drawGrid();    
-        
+    drawGrid();  
     </script>
 </body>
 </html>
