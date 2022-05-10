@@ -65,7 +65,8 @@
         }
         function setGridNumOfColumns(gridLength)
         {
-            gridContainer.setAttribute("style",`grid-template-columns : repeat(${gridLength}, auto)`);
+            gridContainer.style.display = "grid";
+            gridContainer.style.gridTemplateColumns = `repeat(${gridLength}, ${gridSquareWidth}px)`;
         }  
         drawGrid();
         

@@ -3,7 +3,6 @@ html{
 }
 
 .gridContainer{
-    display: grid;
 }
 .gridSquare{
     border-color: black;
